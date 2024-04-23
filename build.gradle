@@ -1,0 +1,38 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.5'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.apache.avro:avro:1.11.3'
+    implementation 'org.apache.parquet:parquet-avro:1.12.3'
+    implementation 'org.apache.hadoop:hadoop-common:3.3.6' // Version may vary
+    implementation 'org.apache.hadoop:hadoop-mapreduce-client-core:3.3.6' // MapReduce core
+    implementation 'org.springframework.boot:spring-boot-starter-logging' // Logback by default
+
+}
+configurations.all {
+    exclude group: 'org.slf4j', module: 'slf4j-reload4j' // Exclude slf4j-reload4j globally
+ 
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

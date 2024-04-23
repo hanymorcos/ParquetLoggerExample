@@ -1,0 +1,14 @@
+<configuration>
+  <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="ParquetAppender" class="hany.tech.Appender.ParquetAppender"/>
+
+  <root level="info">
+    <appender-ref ref="Console"/>
+    <appender-ref ref="ParquetAppender"/> <!-- Reference the custom appender -->
+  </root>
+</configuration>
