@@ -7,12 +7,12 @@ import org.apache.logging.log4j.Logger;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "hany.tech")
-public class Log4j2App {
+public class LogbackAppenderApp {
 
-    private static final Logger logger = LogManager.getLogger(Log4j2App.class);
+    private static final Logger logger = LogManager.getLogger(LogbackAppenderApp.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(Log4j2App.class, args).close();
+        SpringApplication.run(LogbackAppenderApp.class, args).close();
     }
 
     @org.springframework.context.annotation.Bean
